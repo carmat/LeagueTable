@@ -8,6 +8,7 @@ class FixturesController < ApplicationController
   end
 
   def new
+    @fixture = Fixture.new
   end
 
   def edit
@@ -16,8 +17,12 @@ class FixturesController < ApplicationController
   def create
     # render plain: params[:fixture].inspect
     @fixture = Fixture.new(fixture_params)
-    @fixture.save
-    redirect_to @fixture
+    
+    if @fixture.save
+      redirect_to @fixture
+    else
+      render "new"
+    end
   end
 
   def update
