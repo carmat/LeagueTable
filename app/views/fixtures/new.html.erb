@@ -1,0 +1,7 @@
+<h1>New Fixture</h1>
+
+<%= form_for :fixture, url: fixtures_path do |f| %>
+  <p><%= f.label :home_goals %> <%= f.number_field :home_goals %> - <%= f.number_field :away_goals %> <%= f.label :away_goals %></p>
+
+  <p><%= f.submit %></p>
+<% end %>
