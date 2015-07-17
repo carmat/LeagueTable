@@ -1,0 +1,17 @@
+<h1>Fixtures</h1>
+
+<table>
+  <tr>
+    <th colspan="2">Home</th>
+    <th colspan="2">Away</th>
+  </tr>
+
+  <% @fixtures.each do |fixture| %>
+    <tr>
+      <td>Home</td>
+      <td><%= fixture.home_goals %></td>
+      <td><%= fixture.away_goals %></td>
+      <td>Away</td>
+    </tr>
+  <% end %>
+</table>
