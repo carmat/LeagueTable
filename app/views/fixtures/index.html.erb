@@ -6,7 +6,7 @@
   <tr>
     <th colspan="2">Home</th>
     <th colspan="2">Away</th>
-    <th colspan="2"></th>
+    <th colspan="3"></th>
   </tr>
 
   <% @fixtures.each do |fixture| %>
@@ -17,6 +17,7 @@
       <td>Away</td>
       <td><%= link_to "Show", fixture_path(fixture) %></td>
       <td><%= link_to "Edit", edit_fixture_path(fixture) %></td>
+      <td><%= link_to "Delete", fixture_path(fixture), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 </table>

@@ -37,6 +37,10 @@ class FixturesController < ApplicationController
   end
 
   def destroy
+    @fixture = Fixture.find(params[:id])
+    @fixture.destroy
+
+    redirect_to fixtures_path
   end
 
   private
