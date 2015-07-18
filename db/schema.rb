@@ -11,21 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718131020) do
+ActiveRecord::Schema.define(version: 20150718144955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "fixtures", force: :cascade do |t|
+    t.integer  "home_team"
     t.integer  "home_goals"
+    t.integer  "away_team"
     t.integer  "away_goals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "home_team"
-    t.string   "away_team"
   end
-
-  add_index "fixtures", ["id"], name: "index_fixtures_on_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string "name"
