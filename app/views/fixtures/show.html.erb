@@ -2,4 +2,4 @@
 
 <p>Home <strong><%= @fixture.home_goals %></strong> - <strong><%= @fixture.away_goals %></strong> Away</p>
 
-<%= link_to "Back", fixtures_path %>
+<%= link_to "Edit", edit_fixture_path(@fixture) %> | <%= link_to "Back", fixtures_path %>

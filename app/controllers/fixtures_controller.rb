@@ -12,12 +12,13 @@ class FixturesController < ApplicationController
   end
 
   def edit
+    @fixture = Fixture.find(params[:id])
   end
 
   def create
     # render plain: params[:fixture].inspect
     @fixture = Fixture.new(fixture_params)
-    
+
     if @fixture.save
       redirect_to @fixture
     else
@@ -26,6 +27,13 @@ class FixturesController < ApplicationController
   end
 
   def update
+    @fixture = Fixture.find(params[:id])
+
+    if @fixture.update(fixture_params)
+      redirect_to @fixture
+    else
+      render "edit"
+    end
   end
 
   def destroy
