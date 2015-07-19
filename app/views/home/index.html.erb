@@ -1,3 +1,8 @@
 <h1>Hello, Rails!</h1>
 
-<%= link_to "New Fixture", new_fixture_path %> | <%= link_to "All Fixtures", controller: "fixtures" %>
+<nav>
+  <ul>
+    <li><%= link_to "Fixtures", controller: "fixtures" %> <%= link_to "[new]", new_fixture_path %></li>
+    <li><%= link_to "Players", controller: "players" %> <%= link_to "[new]", new_player_path %></li>
+  </ul>
+</nav>
