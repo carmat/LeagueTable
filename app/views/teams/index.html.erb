@@ -12,7 +12,7 @@
   <% @teams.each do |team| %>
     <tr>
       <td><%= team.name %></td>
-      <td><%= team[:player_id].name %></td>
+      <td><%= team.player_id %></td>
       <td><%= link_to "Show", team_path(team) %></td>
       <td><%= link_to "Edit", edit_team_path(team) %></td>
       <td><%= link_to "Delete", team_path(team), method: :delete, data: { confirm: "Are you sure?" } %></td>

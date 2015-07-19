@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  resources :teams
   resources :players do
     # Show all fixtures for a specified Player
     # resources :fixtures

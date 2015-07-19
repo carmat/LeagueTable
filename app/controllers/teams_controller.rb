@@ -17,7 +17,8 @@ class TeamsController < ApplicationController
 
   def create
     # render plain: params[:team].inspect
-    @team = Team.new(team_params)
+    @player = Player.find(params[:player_id])
+    @team = @player.teams.create(team_params)
 
     if @team.save
       redirect_to @team
