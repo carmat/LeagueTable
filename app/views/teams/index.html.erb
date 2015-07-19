@@ -1,0 +1,21 @@
+<h1>Teams</h1>
+
+<%= link_to "New Team", new_team_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Player</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @teams.each do |team| %>
+    <tr>
+      <td><%= team.name %></td>
+      <td><%= team[:player_id].name %></td>
+      <td><%= link_to "Show", team_path(team) %></td>
+      <td><%= link_to "Edit", edit_team_path(team) %></td>
+      <td><%= link_to "Delete", team_path(team), method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
