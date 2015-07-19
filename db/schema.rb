@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719141032) do
+ActiveRecord::Schema.define(version: 20150719214751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150719141032) do
     t.string   "enc_password"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "team"
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -49,14 +50,4 @@ ActiveRecord::Schema.define(version: 20150719141032) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "player_id"
-  end
-
-  add_index "teams", ["player_id"], name: "index_teams_on_player_id", using: :btree
-
-  add_foreign_key "teams", "players"
 end
