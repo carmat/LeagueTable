@@ -1,0 +1,21 @@
+<h1>League</h1>
+
+<%= link_to "New League", new_league_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <!-- ADD REMAINING LEAGUE COLUMNS -->
+    <th colspan="3"></th>
+  </tr>
+
+  <% @leagues.each do |league| %>
+    <tr>
+      <td><%= league.name %></td>
+      <!-- ADD REMAINING LEAGUE COLUMNS -->
+      <td><%= link_to "Show", league_path(league) %></td>
+      <td><%= link_to "Edit", edit_league_path(league) %></td>
+      <td><%= link_to "Delete", league_path(league), method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
