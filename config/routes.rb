@@ -15,8 +15,7 @@ Rails.application.routes.draw do
     # resources :fixtures
 
     # Show all teams played by a specified Player
-    resources :teams
-
+  
     # Show all leagues including a specified Player
     # resources :leagues
 
