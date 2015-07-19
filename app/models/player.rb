@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
-  has_many :teams
   validates :name, presence: true
+  validates :email, presence: true
+  validates :team, presence: true
 end
