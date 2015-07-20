@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720121719) do
+ActiveRecord::Schema.define(version: 20150720123447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,10 @@ ActiveRecord::Schema.define(version: 20150720121719) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "team"
+    t.integer  "league_id"
   end
+
+  add_index "players", ["league_id"], name: "index_players_on_league_id", using: :btree
 
   create_table "seasons", force: :cascade do |t|
     t.string   "name"
@@ -63,4 +66,5 @@ ActiveRecord::Schema.define(version: 20150720121719) do
 
   add_foreign_key "fixtures", "leagues"
   add_foreign_key "leagues", "seasons"
+  add_foreign_key "players", "leagues"
 end
