@@ -1,50 +1,44 @@
 class LeaguesController < ApplicationController
+  @season = Season.find(params[:season_id])
+
   def index
-    @leagues = League.all
+    # @leagues = League.all
   end
 
   def show
-    @league = League.find(params[:id])
+    # @league = League.find(params[:id])
   end
 
   def new
-    @league = League.new
+    # @league = League.new
   end
 
   def edit
-    @league = League.find(params[:id])
+    # @league = League.find(params[:id])
   end
 
   def create
     # render plain: params[:league].inspect
-    @league = League.new(league_params)
-
-    if @league.save
-      redirect_to @league
-    else
-      render "new"
-    end
+    @league = @season.leagues.create(league_params)
+    redirect_to season_path(@season)
   end
 
   def update
-    @league = League.find(params[:id])
+    @league = @season.leagues.find(params[:id])
 
-    if @league.update(league_params)
-      redirect_to @league
-    else
-      render "edit"
-    end
+    redirect_to season_path(@season)
   end
 
   def destroy
-    @league = League.find(params[:id])
+    @league = @season.leagues.find(params[:id])
     @league.destroy
 
-    redirect_to leagues_path
+    redirect_to season_path(@season)
   end
 
   private
+
     def league_params
-      params.require(:league).permit(:name, :rel_places, :rel_playoff_places, :promo_places, :promo_playoff_places, :previous_league)
+      params.require(:league).permit(:name)
     end
 end

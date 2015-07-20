@@ -1,0 +1,6 @@
+<% @season.leagues.each do |league| %>
+  <h2><%= league.name %></h2>
+  <ul>
+    <li><%= link_to "Delete", [league.season, league], method: :delete, data: { confirm: "Are you sure?" } %></li>
+  </ul>
+<% end %>
