@@ -1,29 +1,30 @@
 class PlayersController < ApplicationController
-  # def index
-  #   @players = Player.all
-  # end
+  def index
+    @players = Player.all
+  end
 
-  # def show
-  #   @player = Player.find(params[:id])
-  # end
+  def show
+    @player = Player.find(params[:id])
+  end
 
   def new
+    @player = Player.new
   end
 
   # def edit
   #   @player = Player.find(params[:id])
   # end
 
-  # def create
-  #   # render plain: params[:player].inspect
-  #   @player = Player.new(player_params)
+  def create
+    # render plain: params[:player].inspect
+    @player = Player.new(player_params)
 
-  #   if @player.save
-  #     redirect_to @player
-  #   else
-  #     render "new"
-  #   end
-  # end
+    if @player.save
+      redirect_to @player
+    else
+      render "new"
+    end
+  end
 
   # def update
   #   @player = Player.find(params[:id])
@@ -35,15 +36,14 @@ class PlayersController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   @player = Player.find(params[:id])
-  #   @player.destroy
+  def destroy
+    @player = Player.find(params[:id])
+    @player.destroy
+    redirect_to players_path
+  end
 
-  #   redirect_to players_path
-  # end
-
-  # private
-  #   def player_params
-  #     params.require(:player).permit(:name, :email, :team)
-  #   end
+  private
+    def player_params
+      params.require(:player).permit(:name, :email, :password, :team)
+    end
 end
