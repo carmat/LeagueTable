@@ -11,9 +11,9 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
-  # def edit
-  #   @player = Player.find(params[:id])
-  # end
+  def edit
+    @player = Player.find(params[:id])
+  end
 
   def create
     # render plain: params[:player].inspect
@@ -26,15 +26,15 @@ class PlayersController < ApplicationController
     end
   end
 
-  # def update
-  #   @player = Player.find(params[:id])
+  def update
+    @player = Player.find(params[:id])
 
-  #   if @player.update(player_params)
-  #     redirect_to @player
-  #   else
-  #     render "edit"
-  #   end
-  # end
+    if @player.update(player_params)
+      redirect_to @player
+    else
+      render "edit"
+    end
+  end
 
   def destroy
     @player = Player.find(params[:id])
