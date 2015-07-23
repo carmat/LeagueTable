@@ -1,12 +1,13 @@
 class Player < ActiveRecord::Base
-  attr_accessor :name, :email, :team
+  # attr_accessor :password
 
   before_save { self.email = email.downcase }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   validates :name,
-            presence: true
+            presence: true,
+            length: { minimum: 2 }
   validates :email,
             presence: true,
             length: { maximum: 225 },
