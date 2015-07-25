@@ -20,6 +20,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save
+      flash[:success] = "Welcome to LeagueTable"
       redirect_to @player
     else
       render "new"

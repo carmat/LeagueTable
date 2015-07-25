@@ -12,6 +12,12 @@
       <%= link_to "Home", root_path %> | <%= link_to "Login", "#" %> | <%= link_to "Signup", signup_path %>
     </header>
 
+    <% flash.each do |message_type, message| %>
+      <aside>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      </aside>
+    <% end %>
+
     <div class="app__page">
       <%= yield %>
     </div>
