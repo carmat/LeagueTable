@@ -26,6 +26,7 @@ class PlayersSignupTest < ActionDispatch::IntegrationTest
       }
     end
     assert_template 'players/show'
+    assert is_logged_in?
   end
 
 end

@@ -16,10 +16,10 @@ class PlayersController < ApplicationController
   end
 
   def create
-    # render plain: params[:player].inspect
     @player = Player.new(player_params)
 
     if @player.save
+      log_in @player
       flash[:success] = "Welcome to LeagueTable"
       redirect_to @player
     else
