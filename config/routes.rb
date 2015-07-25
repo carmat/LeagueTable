@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
-  resources :fixtures
+  # You can have the root of your site routed with "root"
+  root 'home#index'
 
-  get 'home/index'
   get 'signup'          => 'players#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+  resources :players do
+    # Show all Fixtures for a Player
+    # resources :fixtures
+
+    # Show all leagues including a specified Player
+    # resources :leagues
+
+    # Show all seasons a specified Player as played in
+    # resources :seasons
+  end
+
+  resources :fixtures
 
   resources :leagues do
     # Show all Fixtures within the League
@@ -18,17 +28,6 @@ Rails.application.routes.draw do
   resources :seasons do
     # Show all Leagues within the Season
     resources :leagues
-  end
-
-  resources :players do
-    # Show all Fixtures for a Player
-    resources :fixtures
-
-    # Show all leagues including a specified Player
-    # resources :leagues
-
-    # Show all seasons a specified Player as played in
-    # resources :seasons
   end
 
   # Example of regular route:
