@@ -5,6 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # Encrypt password
 gem 'bcrypt', '3.1.7'
+# Cretae sample users
+gem 'faker', '1.4.3'
+# Add pagination and relative styles
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

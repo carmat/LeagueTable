@@ -21,7 +21,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test "name should not be too long" do
-    @player.name = "a" * 21
+    @player.name = "a" * 51
     assert_not @player.valid?
   end
 

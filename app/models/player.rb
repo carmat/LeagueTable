@@ -6,7 +6,7 @@ class Player < ActiveRecord::Base
 
   validates :name,
             presence: true,
-            length: { minimum: 2, maximum: 20 }
+            length: { minimum: 2, maximum: 50 }
   validates :email,
             presence: true,
             length: { maximum: 255 },

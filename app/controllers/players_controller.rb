@@ -1,9 +1,9 @@
 class PlayersController < ApplicationController
-  before_action :logged_in_player, only: [:edit, :update]
+  before_action :logged_in_player, only: [:index, :edit, :update]
   before_action :correct_player, only: [:edit, :update]
 
   def index
-    @players = Player.all
+    @players = Player.paginate(page: params[:page], per_page: 10)
   end
 
   def show
