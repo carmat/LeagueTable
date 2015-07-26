@@ -17,7 +17,7 @@ class ActiveSupport::TestCase
     if integration_test?
       post login_path, session: { email: player.email, password: password, remember_me: remember_me }
     else
-      session[:player_id] = player_id
+      session[:player_id] = player.id
     end
   end
 

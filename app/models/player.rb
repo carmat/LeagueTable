@@ -16,7 +16,8 @@ class Player < ActiveRecord::Base
   has_secure_password
   validates :password,
             presence: true,
-            length: { minimum: 8 }
+            length: { minimum: 8 },
+            allow_nil: true
 
   class << self
     def digest(string)

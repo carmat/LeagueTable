@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+  before_action :logged_in_player, only: [:edit, :update]
+  before_action :correct_player, only: [:edit, :update]
+
   def index
     @players = Player.all
   end
@@ -31,6 +34,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
 
     if @player.update(player_params)
+      flash[:success] = "Profile updated"
       redirect_to @player
     else
       render "edit"
@@ -44,7 +48,21 @@ class PlayersController < ApplicationController
   end
 
   private
+
     def player_params
       params.require(:player).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def logged_in_player
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in"
+        redirect_to login_url
+      end
+    end
+
+    def correct_player
+      @player = Player.find(params[:id])
+      redirect_to(root_url) unless current_player?(@player)
     end
 end

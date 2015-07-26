@@ -10,6 +10,10 @@ module SessionsHelper
     cookies.permanent[:remember_token] = player.remember_token
   end
 
+  def current_player?(player)
+    player == current_player
+  end
+
   def current_player
     if (player_id = session[:player_id])
       @current_player ||= Player.find_by(id: player_id)
@@ -36,6 +40,15 @@ module SessionsHelper
     forget(current_player)
     session.delete(:player_id)
     @current_player = nil
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
   end
 
 end
