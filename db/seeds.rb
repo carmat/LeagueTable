@@ -9,6 +9,12 @@
 Player.create!(name: "Example User",
                email: "example@leaguetable.test",
                password: "password",
+               password_confirmation: "password",
+               admin: true)
+
+Player.create!(name: "Joe Bloggs",
+               email: "joe.bloggs@leaguetable.test",
+               password: "password",
                password_confirmation: "password")
 
 99.times do |n|

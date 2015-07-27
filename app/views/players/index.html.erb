@@ -18,8 +18,10 @@
       <td class="player__email"><%= player.email %></td>
       <td class="player__team"><%= player.team %></td>
       <td class="player__action"><%= link_to "Show", player_path(player) %></td>
-      <td class="player__action"><%= link_to "Edit", edit_player_path(player) %></td>
-      <td class="player__action"><%= link_to "Delete", player_path(player), method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <% if current_player.admin? && !current_player?(player) %>
+        <td class="player__action"><%= link_to "Edit", edit_player_path(player) %></td>
+        <td class="player__action"><%= link_to "Delete", player, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

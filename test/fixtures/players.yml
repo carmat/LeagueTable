@@ -2,15 +2,16 @@
 
 example:
   name: Example User
-  email: user@example.test
+  email: example@leaguetable.test
   password_digest: <%= Player.digest('password') %>
+  admin: true
 
 bloggs:
   name: Joe Bloggs
-  email: joe@bloggs.test
+  email: joe.bloggs@leaguetable.test
   password_digest: <%= Player.digest('password') %>
 
-<% 100.times do |n| %>
+<% 99.times do |n| %>
 player_<%= n %>:
   name: Player <%= n %>
   email: player-<%= n %>@leaguetable.test
