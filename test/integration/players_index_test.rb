@@ -3,7 +3,7 @@ require 'test_helper'
 class PlayersIndexTest < ActionDispatch::IntegrationTest
 
   def setup
-    @admin = players(:example)
+    @admin = players(:carmat)
     @non_admin = players(:bloggs)
   end
 

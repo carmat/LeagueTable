@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsHelperTest < ActionView::TestCase
 
   def setup
-    @player = players(:example)
+    @player = players(:carmat)
     remember(@player)
   end
 

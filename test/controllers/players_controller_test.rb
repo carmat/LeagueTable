@@ -3,7 +3,7 @@ require 'test_helper'
 class PlayersControllerTest < ActionController::TestCase
 
   def setup
-    @player = players(:example)
+    @player = players(:carmat)
     @other_player = players(:bloggs)
   end
 

@@ -3,7 +3,7 @@ require 'test_helper'
 class PlayersEditTest < ActionDispatch::IntegrationTest
 
   def setup
-    @player = players(:example)
+    @player = players(:carmat)
   end
 
   test "unsuccessful edit" do

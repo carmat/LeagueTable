@@ -3,7 +3,7 @@ require 'test_helper'
 class PlayersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @player = players(:example)
+    @player = players(:carmat)
   end
 
   test "login with invalid information" do
