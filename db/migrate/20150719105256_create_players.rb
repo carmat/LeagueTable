@@ -3,7 +3,7 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
       t.string :name
       t.string :email
-      t.string :enc_password
+      t.string :password_digest
 
       t.timestamps null: false
     end

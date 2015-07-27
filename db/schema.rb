@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20150726213555) do
     t.datetime "updated_at",                      null: false
     t.string   "team"
     t.integer  "league_id"
-    t.string   "remember_digest"
     t.boolean  "admin",           default: false
   end
 

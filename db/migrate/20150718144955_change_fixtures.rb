@@ -1,7 +1,5 @@
 class ChangeFixtures < ActiveRecord::Migration
   def change
-    drop_table :fixtures
-
     create_table :fixtures do |t|
       t.integer :home_team
       t.integer :home_goals
