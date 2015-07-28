@@ -1,0 +1,7 @@
+<h1>LeagueTable</h1>
+
+<p>Hi <%= @player.name %>,</p>
+
+<p>Welcome to the LeagueTable! Click on the link below to activate your account:</p>
+
+<%= link_to "Activate", edit_account_activation_url(@player.activation_token, email: @player.email) %>
