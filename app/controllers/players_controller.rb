@@ -23,9 +23,12 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save
-      log_in @player
-      flash[:success] = "Welcome to LeagueTable"
-      redirect_to @player
+      @player.send_activaton_email
+      # log_in @player
+      # flash[:success] = "Welcome to LeagueTable"
+      flash[:info] = "Please check your email to activate your account."
+      # redirect_to @player
+      redirect_to root_url
     else
       render "new"
     end
