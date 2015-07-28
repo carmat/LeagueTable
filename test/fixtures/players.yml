@@ -6,28 +6,28 @@ carmat:
   password_digest: <%= Player.digest('password') %>
   admin: true
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
 bloggs:
   name: Joe Bloggs
   email: joe.bloggs@leaguetable.test
   password_digest: <%= Player.digest('password') %>
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
 vercetti:
   name: Tommy Vercetti
   email: tommy.vercetti@leaguetable.test
   password_digest: <%= Player.digest('password') %>
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
 belic:
   name: Niko Belic
   email: niko.belic@leaguetable.test
   password_digest: <%= Player.digest('password') %>
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 player_<%= n %>:
@@ -35,5 +35,5 @@ player_<%= n %>:
   email: player-<%= n %>@leaguetable.test
   password_digest: <%= Player.digest('password') %>
   activated: true
-  activated_at: Time.zone.now
+  activated_at: <%= Time.zone.now %>
 <% end %>
