@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727130951) do
+ActiveRecord::Schema.define(version: 20150728121226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,15 @@ ActiveRecord::Schema.define(version: 20150727130951) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "team"
     t.integer  "league_id"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",             default: false
     t.string   "remember_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
   end
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     # resources :seasons
   end
 
+  resources :account_activations, only: [:edit]
+
   resources :fixtures
 
   resources :leagues do
