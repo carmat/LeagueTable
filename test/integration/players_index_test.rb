@@ -12,7 +12,7 @@ class PlayersIndexTest < ActionDispatch::IntegrationTest
     get players_path
     assert_template 'players/index'
     assert_select 'div.pagination'
-    first_page_of_players = Player.paginate(page: 1)
+    first_page_of_players = Player.paginate(page: 1, per_page: 10)
     first_page_of_players.each do |player|
       assert_select '.player__name', text: player.name
       unless player == @admin
