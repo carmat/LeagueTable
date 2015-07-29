@@ -1,0 +1,11 @@
+<h1>Forgot my password</h1>
+
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+  <p><%= f.label :email %> <%= f.email_field :email %></p>
+
+  <p><%= f.submit "Submit" %></p>
+
+<% end %>
+
+<p>Don't have an account? <%= link_to "Sign up now!", signup_path %></p>
