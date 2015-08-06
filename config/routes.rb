@@ -11,14 +11,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :players do
+    # Show all seasons a specified Player as played in
+    resources :seasons
+
     # Show all Fixtures for a Player
     # resources :fixtures
 
     # Show all leagues including a specified Player
     # resources :leagues
-
-    # Show all seasons a specified Player as played in
-    # resources :seasons
   end
 
   resources :account_activations, only: [:edit]
