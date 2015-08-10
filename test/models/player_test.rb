@@ -64,4 +64,12 @@ class PlayerTest < ActiveSupport::TestCase
   test "authenticated? should return false for a player with nil digest" do
     assert_not @player.authenticated?(:remember, '')
   end
+
+  test "associated seasons should be destroyed" do
+    @player.save
+    @player.seasons.create!(name: "Lorem Ipsum", admin: @player.id)
+    assert_difference 'Season.count', -1 do
+      @player.destroy
+    end
+  end
 end
