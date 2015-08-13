@@ -9,6 +9,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @seasons = @player.seasons.paginate(page: params[:page]).where(admin: @player.id)
   end
 
   def new
@@ -24,10 +25,7 @@ class PlayersController < ApplicationController
 
     if @player.save
       @player.send_activaton_email
-      # log_in @player
-      # flash[:success] = "Welcome to LeagueTable"
       flash[:info] = "Please check your email to activate your account."
-      # redirect_to @player
       redirect_to root_url
     else
       render "new"

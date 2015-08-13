@@ -25,3 +25,9 @@ Player.create!(name: "carmat",
                  activated: true,
                  activated_at: Time.zone.now)
 end
+
+players = Player.order(:created_at).take(6)
+3.times do
+  name = Faker::Lorem.words(2)
+  players.each { |player| player.seasons.create!(name: name, admin: player.id) }
+end

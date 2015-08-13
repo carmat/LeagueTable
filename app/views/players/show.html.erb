@@ -3,4 +3,10 @@
 <p><%= @player.name %> - <%= @player.email %></p>
 <p><strong>Team:</strong> <%= @player.team %></p>
 
+<% if @player.seasons.any? %>
+  <h3>Seasons</h3>
+  <%= render @seasons %>
+  <%= will_paginate @seasons %>
+<% end %>
+
 <%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Back", players_path %>
