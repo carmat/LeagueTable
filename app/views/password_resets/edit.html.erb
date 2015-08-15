@@ -1,7 +1,7 @@
 <h1>Reset password</h1>
 
 <%= form_for(@player, url: password_reset_path(params[:id])) do |f| %>
-  <%= render 'shared/errors' %>
+  <%= render 'shared/errors', object: f.object %>
 
   <%= hidden_field_tag :email, @player.email %>
 

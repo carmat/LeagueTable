@@ -1,17 +1,8 @@
-<%= form_for @season do |f| %>
-  <% if @season.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@season.errors.count, "error") %> prohibited this season from being saved:</h2>
-      <ul>
-        <% @season.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@season) do |f| %>
+  <%= render 'shared/errors', object: f.object %>
 
-  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.label :name %> <%= f.text_field :name, placeholder: "Name your new season..." %></p>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Create Season" %></p>
   <!-- ON SUBMIT GO TO CREATE LEAGUES -->
 <% end %>

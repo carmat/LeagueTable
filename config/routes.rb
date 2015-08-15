@@ -24,17 +24,18 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
-  resources :fixtures
-
-  resources :leagues do
-    # Show all Fixtures within the League
-    resources :fixtures
-  end
-
-  resources :seasons do
+  resources :seasons, only: [:index, :create, :destroy]
+  # resources :seasons do
     # Show all Leagues within the Season
-    resources :leagues
-  end
+    # resources :leagues
+  # end
+
+  # resources :fixtures
+
+  # resources :leagues do
+    # Show all Fixtures within the League
+  #   resources :fixtures
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

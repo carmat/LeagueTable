@@ -3,10 +3,15 @@
 <p class="player-meta"><span class="player-meta__name"><%= @player.name %></span> - <span class="player-meta__email"><%= @player.email %></span></p>
 <p><strong>Team:</strong> <%= @player.team %></p>
 
+<h3>Seasons</h3>
+
+<section class="form" id="new-season">
+  <%= render 'seasons/form' %>
+</section>
+
 <% if @player.seasons.any? %>
-  <h3>Seasons</h3>
-  <%= render @seasons %>
-  <%= will_paginate @seasons %>
+  <%= render @season %>
+  <%= will_paginate @player.seasons %>
 <% end %>
 
 <%= link_to "Edit", edit_player_path(@player) %> | <%= link_to "Back", players_path %>

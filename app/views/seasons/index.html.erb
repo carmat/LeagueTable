@@ -1,7 +1,5 @@
 <h1>Seasons</h1>
 
-<%= link_to "New Season", new_season_path %>
-
 <table>
   <tr>
     <th>Name</th>
@@ -12,8 +10,8 @@
     <tr>
       <td><%= season.name %></td>
       <td><%= link_to "Show", season_path(season) %></td>
-      <td><%= link_to "Edit", edit_season_path(season) %></td>
       <td><%= link_to "Delete", season_path(season), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 </table>
+<%= will_paginate @seasons %>
