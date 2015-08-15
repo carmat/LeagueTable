@@ -2,11 +2,13 @@
 
 <h1><%= @season.name %></h1>
 
+<!--
 <% if season_has_league? %>
   <%= render @season.leagues %>
 <% end %>
 
 <%= render "leagues/form" %>
+-->
 
 <ul>
   <li><%= link_to "Edit", edit_season_path(@season) %></li>

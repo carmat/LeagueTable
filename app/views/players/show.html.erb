@@ -1,6 +1,6 @@
 <%= link_to "New Player", new_player_path %>
 
-<p><%= @player.name %> - <%= @player.email %></p>
+<p class="player-meta"><span class="player-meta__name"><%= @player.name %></span> - <span class="player-meta__email"><%= @player.email %></span></p>
 <p><strong>Team:</strong> <%= @player.team %></p>
 
 <% if @player.seasons.any? %>
