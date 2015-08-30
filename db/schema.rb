@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806213629) do
+ActiveRecord::Schema.define(version: 20150829100715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,14 +37,11 @@ ActiveRecord::Schema.define(version: 20150806213629) do
     t.integer  "previous_league"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "season_id"
     t.integer  "promo_to"
     t.integer  "promo_from"
     t.integer  "rel_to"
     t.integer  "rel_from"
   end
-
-  add_index "leagues", ["season_id"], name: "index_leagues_on_season_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -66,17 +63,6 @@ ActiveRecord::Schema.define(version: 20150806213629) do
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
   add_index "players", ["league_id"], name: "index_players_on_league_id", using: :btree
 
-  create_table "seasons", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "admin"
-  end
-
-  add_index "seasons", ["admin"], name: "index_seasons_on_admin", using: :btree
-
   add_foreign_key "fixtures", "leagues"
-  add_foreign_key "leagues", "seasons"
   add_foreign_key "players", "leagues"
-  add_foreign_key "seasons", "players", column: "admin"
 end

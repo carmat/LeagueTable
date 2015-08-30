@@ -9,8 +9,8 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    @seasons = @player.seasons.paginate(page: params[:page], :per_page => 3).where(admin: @player.id)
-    @season = @player.seasons.build if logged_in?
+    # @seasons = @player.seasons.paginate(page: params[:page], :per_page => 3).where(admin: @player.id)
+    # @season = @player.seasons.build if logged_in?
   end
 
   def new

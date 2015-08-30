@@ -1,17 +1,15 @@
-<h3>Add <%= season_has_league? ? "another" : "a" %> league</h3>
+<h3>Add league</h3>
 
-<%= form_for([@season, @season.leagues.build]) do |f| %>
+<%= form_for(@league) do |f| %>
   <p><%= f.label :name %> <%= f.text_field :name %></p>
 
-  <% if season_has_league? %>
-    <p><%= f.label :rel_places, "Relegation places:" %> <%= f.number_field :rel_places %></p>
-    <p><%= f.label :rel_playoff_places, "Relegation Playoff places:" %> <%= f.number_field :rel_playoff_places %></p>
-    <p><%= f.label :rel_to, "Relegate to:" %> <%= f.number_field :rel_to %></p>
+  <p><%= f.label :rel_places, "Relegation places:" %> <%= f.number_field :rel_places %></p>
+  <p><%= f.label :rel_playoff_places, "Relegation Playoff places:" %> <%= f.number_field :rel_playoff_places %></p>
+  <p><%= f.label :rel_to, "Relegate to:" %> <%= f.number_field :rel_to %></p>
 
-    <p><%= f.label :promo_places, "Promotion places:" %> <%= f.number_field :promo_places %></p>
-    <p><%= f.label :promo_playoff_places, "Promotion Playoff places:" %> <%= f.number_field :promo_playoff_places %></p>
-    <p><%= f.label :promo_to, "Promote to:" %> <%= f.number_field :promo_to %></p>
-  <% end %>
+  <p><%= f.label :promo_places, "Promotion places:" %> <%= f.number_field :promo_places %></p>
+  <p><%= f.label :promo_playoff_places, "Promotion Playoff places:" %> <%= f.number_field :promo_playoff_places %></p>
+  <p><%= f.label :promo_to, "Promote to:" %> <%= f.number_field :promo_to %></p>
 
   <p><%= f.submit "Add League" %></p>
   <!-- ON SUBMIT, ADD CURRENT PLAYERS TO LEAGUE -->
